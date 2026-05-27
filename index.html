@@ -24,6 +24,38 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 15px;
+            order: 3;
+        }
+
+        .control-btn {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--light);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+        }
+
+
+        .control-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            color: var(--primary);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -288,6 +320,8 @@
         .nav-links {
             display: flex;
             list-style: none;
+            margin-left: auto;
+            order: 2;
         }
 
         .nav-links li {
@@ -329,6 +363,8 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
+            margin-left: 15px;
+            order: 4;
         }
 
         /* HERO SECTION */
@@ -1179,9 +1215,609 @@
             background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
             margin: 0;
         }
+
+        /* DISCORD PRESENCE - FULL PROFILE CARD */
+        .discord-card {
+            background: #1a1a2e;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 30px;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .discord-card:hover {
+            border-color: #5865F2;
+            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .discord-banner {
+            height: 80px;
+            background: linear-gradient(135deg, #5865F2, #3BA55D, #FAA61A);
+            background-size: 300% 300%;
+            animation: bannerShift 8s ease infinite;
+            position: relative;
+        }
+
+        @keyframes bannerShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .discord-profile-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            padding: 0 20px;
+            margin-top: -35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .discord-avatar-lg {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 4px solid #1a1a2e;
+            position: relative;
+            flex-shrink: 0;
+            background: #1a1a2e;
+        }
+
+        .discord-avatar-lg img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .discord-status-dot {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid #1a1a2e;
+            z-index: 2;
+        }
+
+        .discord-status-dot.online { background: #3BA55D; }
+        .discord-status-dot.idle { background: #FAA61A; }
+        .discord-status-dot.dnd { background: #ED4245; }
+        .discord-status-dot.offline { background: #747F8D; }
+
+        .discord-profile-info {
+            padding-bottom: 8px;
+        }
+
+        .discord-username {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+        }
+
+        .discord-username .badge {
+            background: #5865F2;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .discord-handle {
+            font-size: 0.8rem;
+            color: #8892B0;
+            margin-top: 2px;
+        }
+
+        .discord-body {
+            padding: 15px 20px 20px;
+        }
+
+        .discord-status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: #CCD6F6;
+        }
+
+        .discord-status-row .status-icon {
+            font-size: 1rem;
+        }
+
+        .discord-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin: 12px 0;
+        }
+
+        /* ACTIVITY CARD */
+        .discord-act-card {
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .discord-act-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #8892B0;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .discord-act-content {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .discord-act-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            background: rgba(88, 101, 242, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #5865F2;
+            position: relative;
+        }
+
+        .discord-act-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .discord-act-img .small-img {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #1a1a2e;
+        }
+
+        .discord-act-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .discord-act-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--light);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .discord-act-state,
+        .discord-act-detail {
+            font-size: 0.8rem;
+            color: #8892B0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 2px;
+        }
+
+        .discord-act-time {
+            font-size: 0.75rem;
+            color: #5865F2;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .discord-act-time .discord-live-dot {
+            width: 6px;
+            height: 6px;
+        }
+
+        /* SPOTIFY BAR */
+        .discord-spotify {
+            background: linear-gradient(135deg, rgba(30, 215, 96, 0.1), rgba(30, 215, 96, 0.05));
+            border: 1px solid rgba(30, 215, 96, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .discord-spotify .discord-act-label {
+            color: #1DB954;
+        }
+
+        .discord-spotify-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .discord-spotify-progress {
+            height: 100%;
+            background: #1DB954;
+            border-radius: 2px;
+            transition: width 1s linear;
+        }
+
+        .discord-spotify-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #8892B0;
+            margin-top: 4px;
+        }
+
+        .discord-live-dot {
+            width: 8px;
+            height: 8px;
+            background: #3BA55D;
+            border-radius: 50%;
+            animation: pulse-live 1.5s infinite;
+        }
+
+        @keyframes pulse-live {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        /* RESUME / ÖZGEÇMIŞ TIMELINE */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .resume-column h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            padding: 20px 25px;
+            background: rgba(30, 30, 46, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.15);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 4px 14px;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.15), rgba(0, 255, 163, 0.15));
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.15rem;
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .timeline-org {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            font-size: 0.9rem;
+            color: #8892B0;
+            margin-bottom: 0;
+        }
+
+        .resume-download {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .discord-card {
+                margin-top: 20px;
+            }
+        }
+
+        /* DISCORD BADGES */
+        .discord-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 10px 20px 5px;
+        }
+
+        .discord-badge {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            cursor: default;
+        }
+
+        .discord-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 4px rgba(88,101,242,0.4));
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        .discord-badge:hover img {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 8px rgba(88,101,242,0.8));
+        }
+
+        .discord-badge .badge-tooltip {
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #18191c;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 5px 10px;
+            border-radius: 6px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 100;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .discord-badge:hover .badge-tooltip {
+            opacity: 1;
+        }
+
+        /* DISCORD ABOUT ME */
+        .discord-about {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: #CCD6F6;
+            line-height: 1.5;
+        }
+
+        .discord-about-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #8892B0;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* DISCORD MEMBER SINCE / NOTE */
+        .discord-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .discord-meta-item {
+            flex: 1;
+            min-width: 100px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+        }
+
+        .discord-meta-item .discord-about-label {
+            margin-bottom: 3px;
+        }
+
+        .discord-meta-item span {
+            font-size: 0.82rem;
+            color: #CCD6F6;
+            font-weight: 500;
+        }
+
+        /* NITRO BANNER GRADIENT */
+        .discord-banner {
+            height: 100px;
+        }
+        /* PRELOADER */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* SCROLL PROGRESS BAR */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 1001; /* Navbar z-index'inden yüksek olsun */
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        /* BLOG SECTION */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            background: var(--gray);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .blog-excerpt {
+            font-size: 0.9rem;
+            color: #8892B0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* GITHUB CHART */
+        .github-chart {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 30px;
+            background: rgba(255,255,255,0.02);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .github-chart img {
+            min-width: 700px;
+            width: 100%;
+            filter: invert(1) hue-rotate(180deg) brightness(1.5);
+        }
+
     </style>
 </head>
 <body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress"></div>
+
     <!-- YENİ CURSOR -->
     <div class="cursor"></div>
 
@@ -1202,13 +1838,22 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Hakkımda</a></li>
-                <li><a href="#skills">Yetenekler</a></li>
-                <li><a href="#projects">Projeler</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#contact">İletişim</a></li>
+                <li><a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                <li><a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
+                <li><a href="#skills" data-tr="Yetenekler" data-en="Skills">Yetenekler</a></li>
+                <li><a href="#resume" data-tr="Özgeçmiş" data-en="Resume">Özgeçmiş</a></li>
+                <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+                <li><a href="#github" data-tr="GitHub" data-en="GitHub">GitHub</a></li>
+                <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
+            <div class="nav-controls">
+                <div class="control-btn" id="lang-toggle" title="Dil Değiştir / Change Language">
+                    <span id="lang-text">EN</span>
+                </div>
+                <a href="CV.pdf" class="control-btn" id="cv-download" title="Özgeçmiş İndir / Download CV" download>
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -1221,7 +1866,7 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge"><i class="fas fa-bolt"></i> Game Developer</span>
+                <span class="hero-badge" data-tr="Game Developer" data-en="Game Developer"><i class="fas fa-bolt"></i> Game Developer</span>
                 <div class="hero-title-container">
                     <div class="title-background"></div>
                     <h1 id="typing-title">
@@ -1268,7 +1913,7 @@
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="glow-text">Hakkımda</h2>
+            <h2 class="glow-text" data-tr="Hakkımda" data-en="About Me">Hakkımda</h2>
             <div class="about-content reveal">
                 <div class="about-image floating">
                     <div class="image-placeholder">
@@ -1288,6 +1933,102 @@
                         <span class="skill-tag">Game Design</span>
                         <span class="skill-tag">Input & Controls</span>
                     </div>
+
+                    <!-- DISCORD PRESENCE - FULL CARD -->
+                    <div class="discord-card" id="discord-widget">
+                        <!-- Banner -->
+                        <div class="discord-banner" id="discord-banner"></div>
+
+                        <!-- Profile Row -->
+                        <div class="discord-profile-row">
+                            <div class="discord-avatar-lg">
+                                <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord Avatar" id="discord-avatar">
+                                <div class="discord-status-dot offline" id="discord-dot"></div>
+                            </div>
+                            <div class="discord-profile-info">
+                                <div class="discord-username">
+                                    <span id="discord-name">Yükleniyor...</span>
+                                    <span class="badge"><i class="fab fa-discord"></i></span>
+                                </div>
+                                <div class="discord-handle" id="discord-handle">@...</div>
+                            </div>
+                        </div>
+
+                        <!-- Badges Row -->
+                        <div class="discord-badges" id="discord-badges"></div>
+
+                        <!-- Body -->
+                        <div class="discord-body">
+                            <!-- About Me -->
+                            <div class="discord-about" id="discord-about-section" style="display:none;">
+                                <div class="discord-about-label">Hakkımda</div>
+                                <div id="discord-about-text"></div>
+                            </div>
+
+                            <!-- Meta: Discord Since -->
+                            <div class="discord-meta">
+                                <div class="discord-meta-item">
+                                    <div class="discord-about-label">Discord Üyesi</div>
+                                    <span id="discord-since">...</span>
+                                </div>
+                            </div>
+
+                            <div class="discord-divider"></div>
+
+                            <!-- Status / Custom Status -->
+                            <div class="discord-status-row" id="discord-status-row">
+                                <span class="status-icon" id="discord-status-icon">⚫</span>
+                                <span id="discord-status">Durum kontrol ediliyor...</span>
+                            </div>
+
+                            <!-- Activity (Game, VS Code, etc.) -->
+                            <div id="discord-activity-card" style="display:none;">
+                                <div class="discord-divider"></div>
+                                <div class="discord-act-card">
+                                    <div class="discord-act-label" id="discord-act-label">OYNUYOR</div>
+                                    <div class="discord-act-content">
+                                        <div class="discord-act-img" id="discord-act-img">
+                                            <i class="fas fa-gamepad"></i>
+                                        </div>
+                                        <div class="discord-act-details">
+                                            <div class="discord-act-name" id="discord-act-name"></div>
+                                            <div class="discord-act-detail" id="discord-act-detail"></div>
+                                            <div class="discord-act-state" id="discord-act-state"></div>
+                                            <div class="discord-act-time" id="discord-act-time" style="display:none;">
+                                                <div class="discord-live-dot"></div>
+                                                <span id="discord-act-time-text"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Spotify -->
+                            <div id="discord-spotify-card" style="display:none;">
+                                <div class="discord-divider"></div>
+                                <div class="discord-spotify">
+                                    <div class="discord-act-label">🎵 SPOTIFY'DA DİNLİYOR</div>
+                                    <div class="discord-act-content">
+                                        <div class="discord-act-img" id="discord-spotify-img">
+                                            <i class="fab fa-spotify" style="color:#1DB954"></i>
+                                        </div>
+                                        <div class="discord-act-details">
+                                            <div class="discord-act-name" id="discord-spotify-title"></div>
+                                            <div class="discord-act-detail" id="discord-spotify-artist"></div>
+                                            <div class="discord-act-state" id="discord-spotify-album"></div>
+                                        </div>
+                                    </div>
+                                    <div class="discord-spotify-bar">
+                                        <div class="discord-spotify-progress" id="discord-spotify-progress" style="width:0%"></div>
+                                    </div>
+                                    <div class="discord-spotify-time">
+                                        <span id="discord-spotify-elapsed">0:00</span>
+                                        <span id="discord-spotify-duration">0:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1298,11 +2039,11 @@
 
     <section id="skills" style="background: var(--dark);">
         <div class="container">
-            <h2 class="glow-text">Yetenek Ağacı</h2>
+            <h2 class="glow-text" data-tr="Yetenek Ağacı" data-en="Skill Tree">Yetenek Ağacı</h2>
             <div class="skill-tree reveal">
                 <!-- Programlama -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programlama</h3>
+                    <h3 data-tr="Programlama" data-en="Programming"><i class="fas fa-code"></i> Programlama</h3>
                     <div class="skill-path">
                         <div class="skill-node">
                             <div class="skill-icon">
@@ -1354,7 +2095,7 @@
 
                 <!-- Tasarım -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-paint-brush"></i> Tasarım</h3>
+                    <h3 data-tr="Tasarım" data-en="Design"><i class="fas fa-paint-brush"></i> Tasarım</h3>
                     <div class="skill-path">
                         <div class="skill-node">
                             <div class="skill-icon">
@@ -1406,7 +2147,7 @@
 
                 <!-- Araçlar -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Araçlar</h3>
+                    <h3 data-tr="Araçlar" data-en="Tools"><i class="fas fa-tools"></i> Araçlar</h3>
                     <div class="skill-path">
                         <div class="skill-node">
                             <div class="skill-icon">
@@ -1452,6 +2193,60 @@
                                     <div class="level-dot"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÖZGEÇMİŞ / RESUME -->
+    <div class="section-divider"></div>
+
+    <section id="resume" style="background: var(--darker);">
+        <div class="container">
+            <h2 class="glow-text" data-tr="Özgeçmiş" data-en="Resume">Özgeçmiş</h2>
+            <div class="resume-grid reveal">
+                <!-- Eğitim -->
+                <div class="resume-column">
+                    <h3 data-tr="Eğitim" data-en="Education"><i class="fas fa-graduation-cap"></i> Eğitim</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024 - Devam Ediyor</span>
+                            <h4>Lise Eğitimi</h4>
+                            <div class="timeline-org">Genel Lise</div>
+                            <p>Bilgisayar bilimleri ve yazılım geliştirme alanında kendini geliştirmeye devam ediyor.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2023 - 2024</span>
+                            <h4>C# Öğrenme Süreci</h4>
+                            <div class="timeline-org">Kendi Kendine Öğrenim</div>
+                            <p>Online kaynaklar ve dokümantasyon ile C# programlama dilini öğrenmeye başladı.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deneyim -->
+                <div class="resume-column">
+                    <h3 data-tr="Deneyim" data-en="Experience"><i class="fas fa-briefcase"></i> Deneyim</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2025 - Devam Ediyor</span>
+                            <h4>Game Developer</h4>
+                            <div class="timeline-org">Bağımsız Geliştirici</div>
+                            <p>Unity ile top-down multiplayer shooter geliştirme. Server-authoritative network yapısı, admin panel ve çok oyunculu sistemler.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024 - 2025</span>
+                            <h4>Backend Developer</h4>
+                            <div class="timeline-org">Kişisel Projeler</div>
+                            <p>C# ile TCP/UDP socket programlama, veritabanı yönetimi ve RESTful API geliştirme.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2023 - 2024</span>
+                            <h4>Yazılım Öğrencisi</h4>
+                            <div class="timeline-org">Açık Kaynak Toplulukları</div>
+                            <p>GitHub üzerinden açık kaynak projelere katkıda bulunma ve temel programlama becerilerini geliştirme.</p>
                         </div>
                     </div>
                 </div>
@@ -1568,12 +2363,46 @@
         </div>
     </section>
 
+    <!-- BLOG BÖLÜMÜ -->
+    <div class="section-divider"></div>
+
+    <section id="blog" style="background: var(--darker);">
+        <div class="container">
+            <h2 class="glow-text" data-tr="Geliştirme Notları" data-en="Dev Notes">Geliştirme Notları</h2>
+            <div class="blog-grid reveal">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="Dev Note 1" class="blog-img">
+                    <div class="blog-content">
+                        <span class="blog-date">15 Mayıs 2025</span>
+                        <h3 class="blog-title" data-tr="Multiplayer Mimarisi Üzerine" data-en="On Multiplayer Architecture">Multiplayer Mimarisi Üzerine</h3>
+                        <p class="blog-excerpt" data-tr="Gerçek zamanlı shooter oyunlarında server-authoritative yapının önemi ve gecikme telafisi (latency compensation) teknikleri." data-en="The importance of server-authoritative structures in real-time shooter games and latency compensation techniques.">Gerçek zamanlı shooter oyunlarında server-authoritative yapının önemi ve gecikme telafisi (latency compensation) teknikleri.</p>
+                        <a href="#" class="btn btn-outline" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="Dev Note 2" class="blog-img">
+                    <div class="blog-content">
+                        <span class="blog-date">10 Mayıs 2025</span>
+                        <h3 class="blog-title" data-tr="Unity & C# Optimizasyonu" data-en="Unity & C# Optimization">Unity & C# Optimizasyonu</h3>
+                        <p class="blog-excerpt" data-tr="Büyük ölçekli projelerde performans artışı sağlamak için memory pooling ve scriptable object kullanımı." data-en="Using memory pooling and scriptable objects to increase performance in large-scale projects.">Büyük ölçekli projelerde performans artışı sağlamak için memory pooling ve scriptable object kullanımı.</p>
+                        <a href="#" class="btn btn-outline" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- YENİ GITHUB PROJELERİ BÖLÜMÜ -->
     <div class="section-divider"></div>
 
     <section id="github" style="background: var(--dark);">
         <div class="container">
-            <h2 class="glow-text">GitHub Projelerim</h2>
+            <h2 class="glow-text" data-tr="GitHub Projelerim" data-en="GitHub Projects">GitHub Projelerim</h2>
+            
+            <div class="github-chart reveal">
+                <img src="https://ghchart.rshah.org/00D4FF/arda6464" alt="Arda's GitHub Chart" />
+            </div>
+
             <div id="projects-container" class="github-projects reveal">
                 <!-- Projeler JavaScript ile buraya eklenecek -->
                 <div class="loading">
@@ -1589,7 +2418,7 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="glow-text">İletişim</h2>
+            <h2 class="glow-text" data-tr="İletişim" data-en="Contact">İletişim</h2>
             <div class="contact-content reveal">
                 <div class="contact-info">
                     <h3>Bana Ulaşın</h3>
@@ -1629,24 +2458,24 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Adınız</label>
+                            <label for="name" data-tr="Adınız" data-en="Your Name">Adınız</label>
                             <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Adresiniz</label>
+                            <label for="email" data-tr="Email Adresiniz" data-en="Your Email">Email Adresiniz</label>
                             <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Konu</label>
+                            <label for="subject" data-tr="Konu" data-en="Subject">Konu</label>
                             <input type="text" id="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Mesajınız</label>
+                            <label for="message" data-tr="Mesajınız" data-en="Your Message">Mesajınız</label>
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
                         <button type="submit" class="btn">
                             <i class="fas fa-paper-plane"></i>
-                            Mesaj Gönder
+                            <span data-tr="Mesaj Gönder" data-en="Send Message">Mesaj Gönder</span>
                         </button>
                     </form>
                 </div>
@@ -1886,6 +2715,44 @@
         window.addEventListener('scroll', scrollReveal);
         scrollReveal(); // İlk yükleme
 
+
+        // ===== LANGUAGE TOGGLE =====
+        const langToggle = document.getElementById('lang-toggle');
+        const langText = document.getElementById('lang-text');
+        
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            langText.textContent = lang === 'tr' ? 'EN' : 'TR';
+            localStorage.setItem('lang', lang);
+        }
+
+        langToggle.addEventListener('click', () => {
+            const newLang = localStorage.getItem('lang') === 'en' ? 'tr' : 'en';
+            setLanguage(newLang);
+        });
+
+        // Init Theme & Lang
+        if (localStorage.getItem('lang') === 'en') setLanguage('en');
+
+        // ===== PRELOADER =====
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // ===== SCROLL PROGRESS BAR =====
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
         // ===== NAVBAR SCROLL =====
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -2002,6 +2869,250 @@
             }
         }
         document.addEventListener('DOMContentLoaded', fetchGitHubProjects);
+
+        // ===== DISCORD PRESENCE (LANYARD API) =====
+        const DISCORD_USER_ID = '1141268241117872158';
+
+        const statusMap = {
+            online:  { label: 'Çevrimiçi',       icon: '🟢', color: '#3BA55D' },
+            idle:    { label: 'Boşta',            icon: '🌙', color: '#FAA61A' },
+            dnd:     { label: 'Rahatsız Etmeyin', icon: '⛔', color: '#ED4245' },
+            offline: { label: 'Çevrimdışı',       icon: '⚫', color: '#747F8D' }
+        };
+
+        const actTypeLabel = {
+            0: 'OYNUYOR', 1: 'YAYIN YAPIYOR', 2: 'MÜZİK DİNLİYOR',
+            3: 'İZLİYOR', 4: 'ÖZEL DURUM', 5: 'YARIŞIYOR'
+        };
+
+        // Discord Public Flags → Badge definitions
+        const BADGES = [
+            { flag: 1 << 0,  id: 'staff',                    label: 'Discord Çalışanı' },
+            { flag: 1 << 1,  id: 'partner',                  label: 'Partner Sunucu Sahibi' },
+            { flag: 1 << 2,  id: 'hypesquad',                label: 'HypeSquad Olayları' },
+            { flag: 1 << 3,  id: 'bug_hunter_level_1',       label: 'Hata Avcısı' },
+            { flag: 1 << 6,  id: 'hypesquad_house_1',        label: 'HypeSquad Cesaret' },
+            { flag: 1 << 7,  id: 'hypesquad_house_2',        label: 'HypeSquad Parlaklık' },
+            { flag: 1 << 8,  id: 'hypesquad_house_3',        label: 'HypeSquad Denge' },
+            { flag: 1 << 9,  id: 'early_supporter',          label: 'Erken Destekçi' },
+            { flag: 1 << 14, id: 'bug_hunter_level_2',       label: 'Altın Hata Avcısı' },
+            { flag: 1 << 17, id: 'verified_bot_developer',   label: 'Erken Bot Geliştiricisi' },
+            { flag: 1 << 18, id: 'certified_moderator',      label: 'Onaylı Moderatör' },
+            { flag: 1 << 22, id: 'active_developer',         label: 'Aktif Geliştirici' },
+        ];
+
+        // Discord Snowflake → Creation Date
+        function snowflakeToDate(id) {
+            const ms = BigInt(id) >> 22n;
+            const epoch = 1420070400000n;
+            return new Date(Number(ms + epoch));
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function renderBadges(flags, hasNitro) {
+            const container = document.getElementById('discord-badges');
+            container.innerHTML = '';
+
+            // Nitro badge (inferred from animated avatar)
+            if (hasNitro) {
+                container.innerHTML += `
+                    <div class="discord-badge">
+                        <img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png" alt="Nitro">
+                        <span class="badge-tooltip">Discord Nitro</span>
+                    </div>`;
+            }
+
+            BADGES.forEach(badge => {
+                if (flags & badge.flag) {
+                    container.innerHTML += `
+                        <div class="discord-badge">
+                            <img src="https://cdn.discordapp.com/badge-icons/${badge.id}.png" alt="${badge.label}" onerror="this.parentElement.style.display='none'">
+                            <span class="badge-tooltip">${badge.label}</span>
+                        </div>`;
+                }
+            });
+        }
+
+        let spotifyInterval = null;
+        let spotifyData = null;
+
+        function msToTime(ms) {
+            const s = Math.floor(ms / 1000);
+            const m = Math.floor(s / 60);
+            return m + ':' + String(s % 60).padStart(2, '0');
+        }
+
+        function updateSpotifyBar() {
+            if (!spotifyData) return;
+            const now = Date.now();
+            const elapsed = now - spotifyData.timestamps.start;
+            const duration = spotifyData.timestamps.end - spotifyData.timestamps.start;
+            const pct = Math.min(100, (elapsed / duration) * 100);
+            const prog = document.getElementById('discord-spotify-progress');
+            const el = document.getElementById('discord-spotify-elapsed');
+            if (prog) prog.style.width = pct + '%';
+            if (el) el.textContent = msToTime(elapsed);
+        }
+
+
+        async function fetchDiscordPresence() {
+            try {
+                const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
+                const json = await res.json();
+                if (!json.success) throw new Error('Lanyard error');
+
+                const data = json.data;
+                const user = data.discord_user;
+                const status = data.discord_status || 'offline';
+                const st = statusMap[status] || statusMap.offline;
+
+                // ---- Avatar & Banner ----
+                const avatarEl = document.getElementById('discord-avatar');
+                if (user.avatar) {
+                    avatarEl.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
+                }
+                // Banner from user profile if exists, else use gradient color
+                if (user.banner) {
+                    const ext = user.banner.startsWith('a_') ? 'gif' : 'png';
+                    document.getElementById('discord-banner').style.background =
+                        `url(https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${ext}?size=480) center/cover`;
+                } else {
+                    // Color banner from status
+                    document.getElementById('discord-banner').style.background =
+                        `linear-gradient(135deg, ${st.color}44, #5865F244)`;
+                }
+
+                // ---- Name & Handle ----
+                document.getElementById('discord-name').textContent = user.global_name || user.username;
+                document.getElementById('discord-handle').textContent = '@' + user.username;
+
+                // ---- Badges ----
+                renderBadges(user.public_flags, user.avatar && user.avatar.startsWith('a_'));
+
+                // ---- Account Date ----
+                document.getElementById('discord-since').textContent = formatDate(snowflakeToDate(user.id));
+
+                // ---- About Me ----
+                const aboutSection = document.getElementById('discord-about-section');
+                const aboutText = document.getElementById('discord-about-text');
+                if (user.bio) {
+                    aboutText.textContent = user.bio;
+                    aboutSection.style.display = 'block';
+                } else {
+                    aboutSection.style.display = 'none';
+                }
+
+                // ---- Status Dot & Row ----
+                const dot = document.getElementById('discord-dot');
+                dot.className = 'discord-status-dot ' + status;
+                document.getElementById('discord-status-icon').textContent = st.icon;
+
+                // Custom status (type 4)
+                const customStatus = (data.activities || []).find(a => a.type === 4);
+                const statusLabel = customStatus && customStatus.state
+                    ? `${st.label} — ${customStatus.emoji?.name ? customStatus.emoji.name + ' ' : ''}${customStatus.state}`
+                    : st.label;
+                document.getElementById('discord-status').textContent = statusLabel;
+
+                // ---- Spotify ----
+                const spotCard = document.getElementById('discord-spotify-card');
+                if (data.listening_to_spotify && data.spotify) {
+                    const sp = data.spotify;
+                    spotifyData = sp;
+
+                    document.getElementById('discord-spotify-title').textContent = sp.song;
+                    document.getElementById('discord-spotify-artist').textContent = '🎤 ' + sp.artist.replace(/;/g, ',');
+                    document.getElementById('discord-spotify-album').textContent = '💿 ' + sp.album;
+
+                    const spImg = document.getElementById('discord-spotify-img');
+                    if (sp.album_art_url) {
+                        spImg.innerHTML = `<img src="${sp.album_art_url}" style="width:100%;height:100%;border-radius:10px;object-fit:cover;" alt="album">`;
+                    }
+
+                    document.getElementById('discord-spotify-duration').textContent =
+                        msToTime(sp.timestamps.end - sp.timestamps.start);
+
+                    spotCard.style.display = 'block';
+
+                    if (spotifyInterval) clearInterval(spotifyInterval);
+                    spotifyInterval = setInterval(updateSpotifyBar, 1000);
+                    updateSpotifyBar();
+                } else {
+                    spotCard.style.display = 'none';
+                    spotifyData = null;
+                    if (spotifyInterval) { clearInterval(spotifyInterval); spotifyInterval = null; }
+                }
+
+                // ---- Activity (game, app, etc.) ----
+                const actCard = document.getElementById('discord-activity-card');
+                const mainAct = (data.activities || []).find(a => a.type !== 4 && a.type !== 2);
+
+                if (mainAct) {
+                    const actLabel = document.getElementById('discord-act-label');
+                    const actName = document.getElementById('discord-act-name');
+                    const actDetail = document.getElementById('discord-act-detail');
+                    const actState = document.getElementById('discord-act-state');
+                    const actImgEl = document.getElementById('discord-act-img');
+                    const actTimeEl = document.getElementById('discord-act-time');
+                    const actTimeText = document.getElementById('discord-act-time-text');
+
+                    actLabel.textContent = actTypeLabel[mainAct.type] || 'AKTİVİTE';
+                    actName.textContent = mainAct.name || '';
+                    actDetail.textContent = mainAct.details || '';
+                    actState.textContent = mainAct.state || '';
+
+                    // Activity image
+                    if (mainAct.assets?.large_image) {
+                        let imgUrl = mainAct.assets.large_image;
+                        if (imgUrl.startsWith('mp:external/')) {
+                            imgUrl = 'https://media.discordapp.net/external/' + imgUrl.slice('mp:external/'.length);
+                        } else {
+                            imgUrl = `https://cdn.discordapp.com/app-assets/${mainAct.application_id}/${imgUrl}.png`;
+                        }
+                        actImgEl.innerHTML = `<img src="${imgUrl}" alt="${mainAct.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-gamepad\\'></i>'">`;
+                        // small overlay image
+                        if (mainAct.assets?.small_image) {
+                            let smUrl = mainAct.assets.small_image;
+                            if (smUrl.startsWith('mp:external/')) {
+                                smUrl = 'https://media.discordapp.net/external/' + smUrl.slice('mp:external/'.length);
+                            } else {
+                                smUrl = `https://cdn.discordapp.com/app-assets/${mainAct.application_id}/${smUrl}.png`;
+                            }
+                            actImgEl.innerHTML += `<img class="small-img" src="${smUrl}" alt="">`;
+                        }
+                    } else {
+                        actImgEl.innerHTML = '<i class="fas fa-gamepad"></i>';
+                    }
+
+                    // Elapsed time
+                    if (mainAct.timestamps?.start) {
+                        const elapsed = Date.now() - mainAct.timestamps.start;
+                        actTimeText.textContent = msToTime(elapsed) + ' geçti';
+                        actTimeEl.style.display = 'flex';
+                    } else {
+                        actTimeEl.style.display = 'none';
+                    }
+
+                    actCard.style.display = 'block';
+                } else {
+                    actCard.style.display = 'none';
+                }
+
+            } catch (err) {
+                console.warn('Discord durumu alınamadı:', err);
+                document.getElementById('discord-name').textContent = 'Arda';
+                document.getElementById('discord-handle').textContent = '@arda_nb01';
+                document.getElementById('discord-status').textContent = 'Lanyard API\'ye bağlanılamadı';
+                document.getElementById('discord-status-icon').textContent = '⚫';
+                document.getElementById('discord-dot').className = 'discord-status-dot offline';
+            }
+        }
+
+        fetchDiscordPresence();
+        setInterval(fetchDiscordPresence, 30000);
     </script>
 </body>
 </html>

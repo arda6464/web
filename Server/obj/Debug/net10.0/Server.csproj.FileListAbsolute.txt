@@ -1,0 +1,15 @@
+C:\Project\web\Server\bin\Debug\net10.0\Server.exe
+C:\Project\web\Server\bin\Debug\net10.0\Server.deps.json
+C:\Project\web\Server\bin\Debug\net10.0\Server.runtimeconfig.json
+C:\Project\web\Server\bin\Debug\net10.0\Server.dll
+C:\Project\web\Server\bin\Debug\net10.0\Server.pdb
+C:\Project\web\Server\obj\Debug\net10.0\Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\web\Server\obj\Debug\net10.0\Server.AssemblyInfoInputs.cache
+C:\Project\web\Server\obj\Debug\net10.0\Server.AssemblyInfo.cs
+C:\Project\web\Server\obj\Debug\net10.0\Server.csproj.CoreCompileInputs.cache
+C:\Project\web\Server\obj\Debug\net10.0\Server.sourcelink.json
+C:\Project\web\Server\obj\Debug\net10.0\Server.dll
+C:\Project\web\Server\obj\Debug\net10.0\refint\Server.dll
+C:\Project\web\Server\obj\Debug\net10.0\Server.pdb
+C:\Project\web\Server\obj\Debug\net10.0\Server.genruntimeconfig.cache
+C:\Project\web\Server\obj\Debug\net10.0\ref\Server.dll
